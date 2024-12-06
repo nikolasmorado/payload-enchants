@@ -16,6 +16,7 @@ export const docsReorder =
       return config;
     }
 
+
     if (config.collections) {
       config.collections = extendCollectionsConfig(config.collections, pluginOptions);
     }
@@ -32,7 +33,7 @@ export const docsReorder =
     config.i18n = {
       ...config.i18n,
       translations: {
-        ...deepMerge(translations, config.i18n?.translations),
+        ...deepMerge(translations, config?.i18n?.translations || {}),
       },
     };
 
