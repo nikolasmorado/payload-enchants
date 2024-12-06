@@ -1,15 +1,13 @@
 import { config } from 'dotenv';
 import { resolve } from 'path';
-import type { GeneratedTypes } from 'payload';
+import type { CollectionSlug, PayloadRequest } from 'payload';
 import { getPayload } from 'payload';
-import { importConfig } from 'payload/node';
-import type { PayloadRequest } from 'payload/types';
 
 config({
   path: resolve(import.meta.dirname, './../../.env'),
 });
 
-const collections: (keyof GeneratedTypes['collections'])[] = ['docs-reoder-examples'];
+const collections: CollectionSlug[] = ['docs-reorder-examples'];
 
 const docsReorderSetupScript = async () => {
   const payload = await getPayload({
@@ -63,3 +61,7 @@ const docsReorderSetupScript = async () => {
 };
 
 docsReorderSetupScript();
+function importConfig(arg0: string): import("payload").SanitizedConfig | Promise<import("payload").SanitizedConfig> {
+    throw new Error('Function not implemented.');
+}
+
