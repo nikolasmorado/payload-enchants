@@ -5,8 +5,8 @@ import {
   DragHandleIcon,
   toast,
   useConfig,
-  useListInfo,
   useLocale,
+  useParams,
   useTranslation,
 } from '@payloadcms/ui';
 import { DraggableSortable } from '@payloadcms/ui/elements/DraggableSortable';
@@ -26,13 +26,14 @@ type Doc = {
 } & Record<string, unknown>;
 
 const CollectionDocsOrderContent = () => {
-  const { collections, routes } = useConfig();
+  const { config } = useConfig();
+  const { routes, collections } = config
 
   const { t } = useTranslation();
 
   const { code: locale } = useLocale();
 
-  const { collectionSlug } = useListInfo();
+  const { collectionSlug } = useParams() as { collectionSlug: string };
 
   const limit = 25;
 
